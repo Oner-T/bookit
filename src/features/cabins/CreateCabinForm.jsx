@@ -124,7 +124,6 @@ function CreateCabinForm({ cabinToEdit = {} }) {
         <FileInput
           id="image"
           accept="image/*"
-          type="file"
           {...register("image", {
             required: isEditSession ? false : "This field is required",
           })}
