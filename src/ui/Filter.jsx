@@ -40,6 +40,7 @@ function Filter({ filterField, options }) {
 
   function handleClick(value) {
     searchParams.set(filterField, value);
+    if (searchParams.get("page")) searchParams.set("page", 1); // We added 1 because in last pag eif we select Unconfirmed than it crashes due to low number of rows - cant fit the page number of 3. so we set it again page number 1
     setSearchParams(searchParams);
   }
 

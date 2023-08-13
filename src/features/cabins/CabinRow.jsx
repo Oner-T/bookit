@@ -98,7 +98,7 @@ function CabinRow({ cabin }) {
                 <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
               </Modal.Open>
 
-              <Modal.Open opens="Delete">
+              <Modal.Open opens="delete">
                 <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
               </Modal.Open>
             </Menus.List>
@@ -111,7 +111,10 @@ function CabinRow({ cabin }) {
               <ConfirmDelete
                 resourceName="cabins"
                 disabled={isDeleting}
-                onConfirm={() => deleteCabin(cabinId)}
+                onConfirm={() => {
+                  deleteCabin(cabinId);
+                  console.log(cabinId);
+                }}
               />
             </Modal.Window>
           </Menus.Menu>
