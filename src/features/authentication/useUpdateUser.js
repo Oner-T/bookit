@@ -10,9 +10,9 @@ export function useUpdateUser() {
     mutationFn: updateCurrentUser,
     onSuccess: ({ user }) => {
       toast.success("User successfully updated");
-      // queryClient.setQueryData("user", user); // manually update data in the cache
+      queryClient.setQueryData(["user"], user); // manually update data in the cache - this will update the image immediately(when we upload new image)
 
-      queryClient.invalidateQueries({ queryKey: ["user"] });
+      // queryClient.invalidateQueries({ queryKey: ["user"] });
     },
     onError: (err) => toast.error(err.message),
   });
